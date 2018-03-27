@@ -1,0 +1,27 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add a character</p>
+  </div>  
+  <div class="col">
+    <p>Your characters ({{ characterCount }})</p>
+  </div>
+</div>
+
+<div class="container color-light" [@names]="names.length">
+    <div class="col">
+      <p class="sm">Use this form to add new characters to the story!</p>
+    
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Character Name" [(ngModel)]="nameText">
+    
+      <input type="submit" class="btn" [value]="btnText" (click)="addCharacter()">
+    </form>
+    </div>  
+
+    <div class="col">
+      <p class="character-container" *ngFor="let name of names; let i = index" (click)="removeItem(i)">
+        {{ name }}
+      </p>
+    </div>
+  </div>
